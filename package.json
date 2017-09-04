@@ -1,0 +1,25 @@
+{
+  "name": "caim",
+  "version": "0.1.0",
+  "description": "云设计平台BIM系统",
+  "main": "Faim.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack -w"
+  },
+  "keywords": [
+    "BIM",
+    "家装",
+    "typescript"
+  ],
+  "author": "",
+  "license": "内部使用",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "ts-loader": "^2.3.4",
+    "webpack": "^3.5.5"
+  }
+}
