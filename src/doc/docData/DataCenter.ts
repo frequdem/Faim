@@ -10,8 +10,6 @@ export default class DataCenter {
 
     private allTypes: string[] = ['projectInfo', 'projectPosition', 'projectLocation'];
 
-    elementCount: number = Element.count;
-
     projectInfo: ProjectInfo;
     projectPosition: ProjectPosition;
     projectLocation: ProjectLocation;
@@ -30,5 +28,10 @@ export default class DataCenter {
             this[ele].update(data[ele]);
         })
     }
+
+    static totalElements() {
+        return Element.count;
+    }
+
 
 }

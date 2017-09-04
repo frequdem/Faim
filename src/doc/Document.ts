@@ -18,9 +18,10 @@ class Document {
 
 
     //获取当前已创建过的 Element 总数
-    get elementCount() {
-        return this.dataCenter.elementCount;
+    static totalElements() {
+        return DataCenter.totalElements;
     }
+
 
     loadData() {
         this.utils.loader.load( '', (data) => {

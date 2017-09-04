@@ -1,4 +1,4 @@
-import { Units } from '../enums/Units';
+import { Units } from '../constants/Unit';
 
 export const projectConfig = {
     lengthUnit: Units.MILLIMETERS,

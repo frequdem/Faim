@@ -3,7 +3,7 @@ enum language {
     CN = '中文'
 }
 
-export const info = {
+export const Info = {
     version: '0.1.0',
     language: language.CN,
     developer: ''
