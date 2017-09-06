@@ -12,7 +12,6 @@ export class View3D extends ViewBase {
             type: ViewType.ThreeD,
             name: name || '3D'
         };
-
         super(data);
     }
 }
