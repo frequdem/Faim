@@ -1,9 +1,8 @@
 /**
  * Created by kexun on 17/9/4.
  */
-import { Element } from "../../Element";
-
-export class Wall extends Element {
+import {ModelBase} from "../ModelBase";
+export class Wall extends ModelBase {
 
   //类别
   category: string = 'WALL';
@@ -35,7 +34,6 @@ export class Wall extends Element {
             rotate: 0
           }
         }
-
       }
     ]
   };
@@ -95,9 +93,11 @@ export class Wall extends Element {
   tag = '';
   remark = '';
 
+
 //Phasing
   phaseCreated = '原有结构/墙体改造/硬装阶段/软装阶段';
   phaseDemolished = '';
+
 
 //Derived Data
   area = 23333;

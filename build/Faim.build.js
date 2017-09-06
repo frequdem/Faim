@@ -415,45 +415,7 @@ exports.Element = Element;
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ProjectBase = (function () {
-    function ProjectBase(args) {
-        this.fields = [];
-        this.update(args);
-    }
-    ProjectBase.prototype.getSingleData = function (k) {
-        return this[k];
-    };
-    ProjectBase.prototype.getAllData = function () {
-        var _this = this;
-        var result = {};
-        this.fields.forEach(function (ele) {
-            result[ele] = _this[ele];
-        });
-        return result;
-    };
-    ProjectBase.prototype.update = function (data) {
-        var _this = this;
-        if (!data) {
-            return;
-        }
-        this.fields.forEach(function (ele) {
-            if (data[ele]) {
-                _this[ele] = data[ele];
-            }
-        });
-    };
-    return ProjectBase;
-}());
-exports.ProjectBase = ProjectBase;
-
-
-/***/ }),
+/* 3 */,
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1038,8 +1000,8 @@ exports.Info = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var DataCenter_1 = __webpack_require__(13);
-var Loader_1 = __webpack_require__(18);
+var DataCenter_1 = __webpack_require__(50);
+var Loader_1 = __webpack_require__(51);
 var View3D_1 = __webpack_require__(38);
 var Document = (function () {
     function Document() {
@@ -1091,39 +1053,7 @@ exports.Document = Document;
 
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Element_1 = __webpack_require__(2);
-var ProjectInfo_1 = __webpack_require__(15);
-var ProjectPosition_1 = __webpack_require__(16);
-var ProjectLocation_1 = __webpack_require__(17);
-var DataCenter = (function () {
-    function DataCenter() {
-        this.allTypes = ['projectInfo', 'projectPosition', 'projectLocation'];
-        this.views = [];
-        this.projectInfo = new ProjectInfo_1.default();
-        this.projectPosition = new ProjectPosition_1.default();
-        this.projectLocation = new ProjectLocation_1.default();
-    }
-    DataCenter.prototype.update = function (data) {
-        var _this = this;
-        this.allTypes.forEach(function (ele) {
-            _this[ele].update(data[ele]);
-        });
-    };
-    DataCenter.totalElements = function () {
-        return Element_1.Element.count;
-    };
-    return DataCenter;
-}());
-exports.default = DataCenter;
-
-
-/***/ }),
+/* 13 */,
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1143,154 +1073,10 @@ exports.ElementId = ElementId;
 
 
 /***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var ProjectBase_1 = __webpack_require__(3);
-var ProjectInfo = (function (_super) {
-    __extends(ProjectInfo, _super);
-    function ProjectInfo(args) {
-        var _this = _super.call(this, args) || this;
-        _this.fields = [
-            'address',
-            'author',
-            'buildingName',
-            'clientName',
-            'issueDate',
-            'name',
-            'number',
-            'organizationDescription',
-            'organizationName',
-            'status'
-        ];
-        return _this;
-    }
-    return ProjectInfo;
-}(ProjectBase_1.ProjectBase));
-exports.default = ProjectInfo;
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var ProjectBase_1 = __webpack_require__(3);
-var ProjectPosition = (function (_super) {
-    __extends(ProjectPosition, _super);
-    function ProjectPosition(args) {
-        var _this = _super.call(this, args) || this;
-        _this.fields = [
-            'angle',
-            'eastWest',
-            'elevation',
-            'northSouth'
-        ];
-        return _this;
-    }
-    return ProjectPosition;
-}(ProjectBase_1.ProjectBase));
-exports.default = ProjectPosition;
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var ProjectBase_1 = __webpack_require__(3);
-var ProjectLocation = (function (_super) {
-    __extends(ProjectLocation, _super);
-    function ProjectLocation(args) {
-        var _this = _super.call(this, args) || this;
-        _this.fields = [
-            'elevation',
-            'latitude',
-            'longtitude',
-            'placeName',
-            'timeZone'
-        ];
-        return _this;
-    }
-    return ProjectLocation;
-}(ProjectBase_1.ProjectBase));
-exports.default = ProjectLocation;
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var axios_1 = __webpack_require__(19);
-var Loader = (function () {
-    function Loader() {
-    }
-    Loader.prototype.load = function (url, succeedHandler, failHandler) {
-        axios_1.default.get('http://3d.fuwo.com').catch(function (r) {
-            r = {
-                projectInfo: {
-                    address: '上海市浦东新区张江集电港',
-                    author: 'xxxx',
-                    buildingName: '集电港八号楼',
-                    clientName: '爱福窝',
-                    issueDate: new Date('2017/08/31'),
-                    name: '爱福窝室内改造',
-                    organizationName: '上海市品茗设计',
-                },
-                projectPosition: {
-                    elevation: 11
-                },
-                projectLocation: {}
-            };
-            succeedHandler(r);
-        });
-    };
-    return Loader;
-}());
-exports.default = Loader;
-
-
-/***/ }),
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20427,6 +20213,226 @@ var ViewType;
     ViewType[ViewType["Rendering"] = 125] = "Rendering";
     ViewType[ViewType["Internal"] = 214] = "Internal";
 })(ViewType = exports.ViewType || (exports.ViewType = {}));
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ProjectBase = (function () {
+    function ProjectBase(args) {
+        this.fields = [];
+        this.update(args);
+    }
+    ProjectBase.prototype.getSingleData = function (k) {
+        return this[k];
+    };
+    ProjectBase.prototype.getAllData = function () {
+        var _this = this;
+        var result = {};
+        this.fields.forEach(function (ele) {
+            result[ele] = _this[ele];
+        });
+        return result;
+    };
+    ProjectBase.prototype.update = function (data) {
+        var _this = this;
+        if (!data) {
+            return;
+        }
+        this.fields.forEach(function (ele) {
+            if (data[ele]) {
+                _this[ele] = data[ele];
+            }
+        });
+    };
+    return ProjectBase;
+}());
+exports.ProjectBase = ProjectBase;
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ProjectBase_1 = __webpack_require__(46);
+var ProjectData = (function (_super) {
+    __extends(ProjectData, _super);
+    function ProjectData(args) {
+        var _this = _super.call(this, args) || this;
+        _this.fields = [
+            'address',
+            'author',
+            'buildingName',
+            'clientName',
+            'issueDate',
+            'name',
+            'number',
+            'organizationDescription',
+            'organizationName',
+            'status'
+        ];
+        return _this;
+    }
+    return ProjectData;
+}(ProjectBase_1.ProjectBase));
+exports.default = ProjectData;
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ProjectBase_1 = __webpack_require__(46);
+var ProjectPosition = (function (_super) {
+    __extends(ProjectPosition, _super);
+    function ProjectPosition(args) {
+        var _this = _super.call(this, args) || this;
+        _this.fields = [
+            'angle',
+            'eastWest',
+            'elevation',
+            'northSouth'
+        ];
+        return _this;
+    }
+    return ProjectPosition;
+}(ProjectBase_1.ProjectBase));
+exports.default = ProjectPosition;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ProjectBase_1 = __webpack_require__(46);
+var ProjectLocation = (function (_super) {
+    __extends(ProjectLocation, _super);
+    function ProjectLocation(args) {
+        var _this = _super.call(this, args) || this;
+        _this.fields = [
+            'elevation',
+            'latitude',
+            'longtitude',
+            'placeName',
+            'timeZone'
+        ];
+        return _this;
+    }
+    return ProjectLocation;
+}(ProjectBase_1.ProjectBase));
+exports.default = ProjectLocation;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Element_1 = __webpack_require__(2);
+var ProjectData_1 = __webpack_require__(47);
+var ProjectPosition_1 = __webpack_require__(48);
+var ProjectLocation_1 = __webpack_require__(49);
+var DataCenter = (function () {
+    function DataCenter() {
+        this.allTypes = ['projectInfo', 'projectPosition', 'projectLocation'];
+        this.views = [];
+        this.projectInfo = new ProjectData_1.default();
+        this.projectPosition = new ProjectPosition_1.default();
+        this.projectLocation = new ProjectLocation_1.default();
+    }
+    DataCenter.prototype.update = function (data) {
+        var _this = this;
+        this.allTypes.forEach(function (ele) {
+            _this[ele].update(data[ele]);
+        });
+    };
+    DataCenter.totalElements = function () {
+        return Element_1.Element.count;
+    };
+    return DataCenter;
+}());
+exports.default = DataCenter;
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __webpack_require__(19);
+var Loader = (function () {
+    function Loader() {
+    }
+    Loader.prototype.load = function (url, succeedHandler, failHandler) {
+        axios_1.default.get('http://3d.fuwo.com').catch(function (r) {
+            r = {
+                projectInfo: {
+                    address: '上海市浦东新区张江集电港',
+                    author: 'xxxx',
+                    buildingName: '集电港八号楼',
+                    clientName: '爱福窝',
+                    issueDate: new Date('2017/08/31'),
+                    name: '爱福窝室内改造',
+                    organizationName: '上海市品茗设计',
+                },
+                projectPosition: {
+                    elevation: 11
+                },
+                projectLocation: {}
+            };
+            succeedHandler(r);
+        });
+    };
+    return Loader;
+}());
+exports.default = Loader;
 
 
 /***/ })

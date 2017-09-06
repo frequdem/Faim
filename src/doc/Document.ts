@@ -1,8 +1,8 @@
-import DataCenter from './docData/DataCenter';
-import Loader from './docUtil/Loader';
+import DataCenter from './dataManager/DataCenter';
+import Loader from './dataManager/tools/Loader';
 import { View3D } from './docElement/view/View3D';
 
-import { IProjectInfoArgs, IProjectPositionArgs, IProjectLocationArgs } from "./docElement/project/IProject";
+import { IProjectDataArgs, IProjectPositionArgs, IProjectLocationArgs } from "./docElement/projectInfo/IProject";
 
 
 class Document {
@@ -30,7 +30,7 @@ class Document {
     }
 
 
-    getAllProjectInfo(): IProjectInfoArgs {
+    getAllProjectInfo(): IProjectDataArgs {
         return this.dataCenter.projectInfo.getAllData();
     }
 
